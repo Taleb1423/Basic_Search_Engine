@@ -1,5 +1,0 @@
-Title: The effectiveness of different online learning platforms
-Author: Ms. Jane Doe
-Topic: Online learning platforms
-Hypothesis: Some online learning platforms are more effective than others for teaching students.
-Result: The study found that students who used a particular online learning platform performed better on average than students who used other platforms.

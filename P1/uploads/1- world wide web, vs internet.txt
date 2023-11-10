@@ -1,0 +1,11 @@
+1- world wide web, vs internet
+2- horizontal scaling: add/remove servers
+3- vertical scaling increase resources (RAM)
+4- cd: (change directory)
+5- mkdir : create directory
+6- touch : create file
+7- NGINX is a HTTP and reverse proxy server
+8- 4XX : (logical error) DB unreachable , 5XX : (internal error) server side errors
+9- pwd (print absolute path)
+10- echo: write to a file
+11- 

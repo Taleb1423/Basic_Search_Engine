@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 import os
 
+from api.mymodule.elastic import client
+from api.mymodule.Pre_processing import index_doc
+
 from api.mymodule.function import func
 
 # Create your views here.
@@ -34,8 +37,17 @@ def main(request):
    
 
       elif 'searchButton' in request.POST:
-         pass
+         
+         query = request.POST.get('search_term')
+
+         #index_doc("document.txt")
+
+         q= { "query_string" : {"query": query}}
+
+
+         res = client.search(index='studies',query=q)
 
        
-
+         return render(request, 'engine.html', {'res': res})
+      
    return render (request, 'engine.html')

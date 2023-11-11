@@ -18,7 +18,7 @@
     <main>
       <form id="searchForm" method="POST" action="{% url 'main' %}">
         {% csrf_token %}
-        <input type="text" id="searchInput" placeholder="Enter your search query">
+        <input type="text" id="searchInput" placeholder="Enter your search query" name="search_term">
         <input type="submit" name="searchButton" value="Search">
       </form>
 
@@ -33,12 +33,14 @@
 
       <br>
   
+      
+
       <div id="results">
 
-        {% for fac in faculty_members %}
+        {% for r in res %}
             <!-- {{ sorted_items1 }} -->
             <ol>
-                <li>{{ fac.name }}</li>
+                <li>{{ r.hits }}</li>
                 <!-- <td>{{ item.1.img }}</td> -->
                <li> <img src="{{ fac.image }}" alt="Error" height="150em" width="150em"/> </li> 
                 <li>{{ fac.description }}</li>

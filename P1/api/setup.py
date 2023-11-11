@@ -1,5 +1,5 @@
 
-from elastic import client
+from P1.api.mymodule.elastic import client
 
 settings1={ 
      "similarity": {

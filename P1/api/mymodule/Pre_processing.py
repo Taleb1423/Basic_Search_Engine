@@ -1,5 +1,5 @@
 import re
-from elastic import client
+from api.mymodule.elastic import client
 def index_doc(file):
     doc = {}
     key = None

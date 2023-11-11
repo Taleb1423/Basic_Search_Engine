@@ -3,8 +3,7 @@ from django.conf import settings
 import os
 
 # Create your views here.
-def mainA(request):
-   return render(request,"engine.html")
+
 def success_page(request):
     return render(request, 'success_page.html')
 

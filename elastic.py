@@ -6,6 +6,3 @@ client = Elasticsearch(
   api_key=key1,
 verify_certs=False
 )
-user = ""
-pwd = ""
-login=""

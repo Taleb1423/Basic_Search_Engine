@@ -2,11 +2,15 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 import os
 
+from api.mymodule.function import func
 
 # Create your views here.
 
 def success_page(request):
-    return render(request, 'success_page.html')
+    #return render(request, 'success_page.html')
+
+    result = func()
+    return render(request, 'template.html', {'result': result})
 
 def main(request):
 

@@ -1,0 +1,8 @@
+1. Title
+ELE 501 Electromagnetic Compatibility Course Syllabus.
+2. Instructor
+Dr. Rodriguez.
+3. Objective
+This course aims to study electromagnetic compatibility issues in electronic systems and devices.
+4. Test
+Two Midterm Exams and a Research Paper.

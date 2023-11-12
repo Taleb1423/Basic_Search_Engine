@@ -1,0 +1,8 @@
+1. Title
+ELE 491 Robotics and Automation Course Syllabus.
+2. Instructor
+Dr. Garcia.
+3. Objective
+This course focuses on the principles of robotics and automation, emphasizing real-world applications.
+4. Test
+Two Midterm Exams and a Final Project.

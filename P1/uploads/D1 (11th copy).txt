@@ -1,0 +1,8 @@
+1. Title
+ELE 371 Microprocessor Systems Course Syllabus.
+2. Instructor
+Professor Brown.
+3. Objective
+The primary objective is to understand the architecture and programming of microprocessor systems.
+4. Test
+Weekly Quizzes and a Final Project.

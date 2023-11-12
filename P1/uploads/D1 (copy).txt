@@ -1,0 +1,8 @@
+1. Title
+ELE 511 Power Electronics and Drives Course Syllabus.
+2. Instructor
+Professor Harris.
+3. Objective
+This course aims to provide an in-depth understanding of power electronics and its applications in motor drives.
+4. Test
+Weekly Quizzes and a Final Exam.

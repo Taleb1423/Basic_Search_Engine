@@ -1,0 +1,8 @@
+1. Title
+ELE 341 Digital Logic Design Course Syllabus.
+2. Instructor
+Dr. Thompson.
+3. Objective
+The primary objective is to comprehend the principles of digital logic design and its applications in computer systems.
+4. Test
+Two Midterm Exams and a Final Project.

@@ -1,11 +1,14 @@
 import re
 from api.mymodule.elastic import client
+import os
 def index_doc(file):
     doc = {}
     key = None
 
+    path = os.path.join(os.getcwd(),"uploads",file)
+
     # Read the text file line by line
-    with open(file, 'r') as file:
+    with open(path, 'r') as file:
         for line in file:
             # Check if the line starts with a number followed by a period
             if re.match(r'\d+\.', line):
@@ -17,5 +20,5 @@ def index_doc(file):
                 # This is the content of the current section or subsection
                 doc[key] += line.strip()
         s =client.index(index='studies',document=doc)
-        print(s)
+        return s["_id"]
 

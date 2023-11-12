@@ -1,0 +1,8 @@
+    1. Title
+    ELE 201 Introduction to Electrical Circuits Course Syllabus.
+    2. Instructor
+    Professor Smith.
+    3. Objective
+    The primary objective of this course is to provide a foundational understanding of electrical circuits and their applications.
+    4. Test
+    Midterm and Final Exams.

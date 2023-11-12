@@ -1,0 +1,11 @@
+1. Title
+ELE 442 Electrical Engineering Course Syllabus.
+2. Instructor
+Doctor Chadi.
+2. Objective
+The main goal of this course is to aplly signaling techniques to get a stable communication system.
+3. Background and Motivations.
+Text-rich documents are becoming increasingly available to describe all kinds of
+data, from academic reports and medical reports, to news articles and blogs.
+4.Test
+Final Exam only.

@@ -1,0 +1,8 @@
+1. Title
+ELE 511 VLSI Design Course Syllabus.
+2. Instructor
+Professor Lee.
+3. Objective
+The main goal of this course is to understand the design and fabrication of Very Large Scale Integration (VLSI) circuits.
+4. Test
+Weekly Assignments and a Final Design Project.

@@ -26,34 +26,51 @@
   
       <form id="uploadForm" method="POST" action="{% url 'main' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" id="fileInput" name="fileInput" accept=".txt, .docx">
+        <input type="file" id="fileInput" name="fileInput" accept=".txt">
         <input type="submit" name="uploadButton" value="Upload Document">
       </form>
     
 
       <br>
   
+      <form id="uploadForm" method="POST" action="{% url 'main' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" id="fileInput" name="docin" accept=".txt">
+        <input type="submit" name="searchdocButton" value="Search Document">
+      </form>
+
+      <br>
       
 
       <div id="results">
 
-        {% for r in res %}
-            <!-- {{ sorted_items1 }} -->
+        <h1>Search Results</h1>
+
+
+        {% if outdoc %}
             <ol>
-                <li>{{ r.hits }}</li>
-                <!-- <td>{{ item.1.img }}</td> -->
-               <li> <img src="{{ fac.image }}" alt="Error" height="150em" width="150em"/> </li> 
-                <li>{{ fac.description }}</li>
-                <li><a href="{{ fac.link }}" target="_blank">Link</a></li>
+                {% for result in outdoc %}
+                    <li>
+
+                {% for score in scorelist %}
+                        <strong>Score: </strong> {{ score }}<br>
+                        
+                     
+                        {% for resultf in result%}
+                          {{resultf}}<br> 
+                        {% endfor %}
+                       
+                    </li>
+                {% endfor %}
+                
+                <hr>
+                {% endfor %}
             </ol>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
 
-            {% empty %}
-            <ul>
-                <li style="text-align: center"> No Documents Found</li>
-            </ul>
-
-            {% endfor %}
-
+        
       </div>
 
     </main>

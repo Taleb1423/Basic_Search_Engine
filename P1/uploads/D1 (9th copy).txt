@@ -1,0 +1,8 @@
+1. Title
+ELE 611 Power System Protection Course Syllabus.
+2. Instructor
+Professor Martinez.
+3. Objective
+The main goal of this course is to understand the principles of power system protection and control.
+4. Test
+Quizzes, Midterm Exam, and a Final Project.

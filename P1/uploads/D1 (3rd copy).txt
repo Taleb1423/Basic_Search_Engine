@@ -1,0 +1,8 @@
+1. Title
+ELE 431 Integrated Circuit Design Course Syllabus.
+2. Instructor
+Dr. Kim.
+3. Objective
+The main objective of this course is to understand the principles of integrated circuit design and fabrication.
+4. Test
+Two Midterm Exams and a Final Design Project.

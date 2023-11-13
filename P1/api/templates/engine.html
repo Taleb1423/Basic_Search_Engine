@@ -48,27 +48,23 @@
 
 
         {% if outdoc %}
-            <ol>
-                {% for result in outdoc %}
-                    <li>
-
-                {% for score in scorelist %}
-                        <strong>Score: </strong> {{ score }}<br>
-                        
-                     
-                        {% for resultf in result%}
-                          {{resultf}}<br> 
-                        {% endfor %}
-                       
-                    </li>
-                {% endfor %}
+    <ol>
+        {% for result, score in outdoc %}
+            <li>
                 
-                <hr>
+                {% for resultf in result %}
+                    {{ resultf }}<br> 
                 {% endfor %}
-            </ol>
-        {% else %}
-            <p>No results found.</p>
-        {% endif %}
+            </li>
+            <strong>Score: </strong>{{ score }}<br>
+            <hr>
+            
+        {% endfor %}
+    </ol>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+
 
         
       </div>

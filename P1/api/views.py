@@ -13,7 +13,7 @@ def success_page(request):
     #return render(request, 'success_page.html')
 
     result = func()
-    return render(request, 'template.html', {'result': result})
+    return render(request, 'success_page.html')
 
 def main(request):
 
@@ -48,7 +48,7 @@ def main(request):
          q= { "query_string" : {"query": query}}
 
 
-         hits = client.search(index='studies',query=q)
+         hits = client.search(index='courses',query=q)
 
          #print(hits)
 
@@ -78,9 +78,8 @@ def main(request):
              i = i + 1
              outdoc.append(outfield)
          i=1     
-
-         #print(outdoc[0])
-         print(scorelist)
+         outdoc =zip(outdoc,scorelist)
+        
 
          
          
@@ -94,7 +93,7 @@ def main(request):
          #for key, value in res.items():
          #  print(f'{key}: {value}')
        
-         return render(request, 'engine.html', {'outdoc': outdoc, 'scorelist': scorelist})
+         return render(request, 'engine.html', {'outdoc': outdoc})
       
 
 
@@ -124,7 +123,7 @@ def main(request):
       "fields": [ "*" ],
       "like": [
         {
-          "_index": "studies",
+          "_index": "courses",
           "_id": docid
         }],
     "min_term_freq": 1,
@@ -133,31 +132,38 @@ def main(request):
 }
          
 
-         hits = client.search(index='studies',query=qfile)
-
-         #print(hits)
-
-         
-
-
-         outdoc = []
+         hits = client.search(index='courses',query=qfile)
          i = 1
+         outdoc = []
+         scorelist = []
+         
 
          for hit in hits['hits']['hits']:
              score = hit['_score']
              print(score)
+             scorelist.append(score)
              print("doc"+str(i)+":\n")
              outfield = []
              for f in hit['_source']:
                  outfield.append(f +": "+ hit['_source'][f])
              i = i + 1
              outdoc.append(outfield)
-         i=1       
+         i=1     
 
-
+         outdoc =zip(outdoc,scorelist)
 
          
-        
+         
+            #  print("Title:", title)
+            #  print("Objective:", objective)
+            #  print("Framework:", framework)
+         
+
+         
+
+         #for key, value in res.items():
+         #  print(f'{key}: {value}')
+       
          return render(request, 'engine.html', {'outdoc': outdoc})
       
 

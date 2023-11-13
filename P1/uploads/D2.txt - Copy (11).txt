@@ -1,0 +1,6 @@
+1. Title
+MEE 321 Bridge Design Syllabus.
+2. Instructor
+Professor Joe.
+3. Objective
+The primary objective is to understand the architecture and programming of microprocessor systems.

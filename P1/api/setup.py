@@ -1,15 +1,18 @@
 
-from P1.api.mymodule.elastic import client
+from mymodule.elastic import client
 
 settings1={ 
-     "similarity": {
-      "scripted_tfidf": {
-        "type": "scripted",
-        "script": {
-          "source": "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;"
-        }
-      }
-    },
+    #  "similarity": {
+    #   "scripted_tfidf": {
+    #     "type": "scripted",
+    #     "weight_script": {
+    #       "source": "double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; return query.boost * idf;"
+    #     },
+    #     "script": {
+    #       "source": "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;"
+    #     }
+    #   }
+    # },
     "analysis": {
       "analyzer": {
         "my_analyzer": {
@@ -27,11 +30,11 @@ mapping1={
           "mapping": {
             "type": "text",
                     "analyzer": "my_analyzer",
-                    "similarity": "scripted_tfidf"
+                    #"similarity": "scripted_tfidf"
               }
             }
           
     }]
 }
 
-client.indices.create(index='studies',settings=settings1,mappings=mapping1)
+client.indices.create(index='courses',settings=settings1,mappings=mapping1)

@@ -19,6 +19,6 @@ def index_doc(file):
             elif key:
                 # This is the content of the current section or subsection
                 doc[key] += line.strip()
-        s =client.index(index='studies',document=doc)
+        s =client.index(index='courses',document=doc)
         return s["_id"]
 

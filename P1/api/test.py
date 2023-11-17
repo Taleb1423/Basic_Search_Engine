@@ -1,11 +1,8 @@
-import os
-import mymodule.Pre_processing.index_doc
-from time import sleep
-directory = '/uploads'  # Replace with the path to your directory
+import json
 
-for filename in os.listdir(directory):
-    if filename.endswith('.txt'):  # Replace '.txt' with the desired file extension
-        file_path = os.path.join(directory, filename)
-        index_doc(file_path)
-        print("added" + file_path)
-        sleep(0.5)
+from mymodule.elastic import client
+file = open("P1/api/udemy_courses.json")
+data = json.load(file)
+file.close()
+for course in data:
+    client.index(index='courses',document=course)

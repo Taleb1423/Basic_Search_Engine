@@ -74,7 +74,7 @@ def main(request):
              print("doc"+str(i)+":\n")
              outfield = []
              for f in hit['_source']:
-                 outfield.append(f +": "+ hit['_source'][f])
+                 outfield.append(f +": "+ str(hit['_source'][f]))
              i = i + 1
              outdoc.append(outfield)
          i=1     

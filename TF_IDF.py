@@ -1,36 +1,39 @@
 import json
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+import os
+stopwords = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'but', 'by', 'for', 'if', 'in', 'into', 'is', 'it', 'no', 'not', 'of', 'on', 'or', 'such', 'that', 'the', 'their', 'then', 'there', 'these', 'they', 'this', 'to', 'was', 'will', 'with']
+vectorizer = TfidfVectorizer(stop_words=stopwords)
 
-import unicodedata, re, itertools, sys
 
-all_chars = (chr(i) for i in range(sys.maxunicode))
-categories = {'Cc'}
-control_chars = ''.join(c for c in all_chars if unicodedata.category(c) in categories)
-control_char_re = re.compile('[%s]' % re.escape(control_chars))
 
-def remove_control_chars(s):
-   return control_char_re.sub('', s)
-import re
 
-def remove_special_chars(s):
-   return re.sub('[^A-Za-z0-9 ]+', '', s)
 
-def remove_alphanumeric_chars(s):
-   return ''.join(e for e in s if not e.isalnum())
-
-def compute_tfidf_vectors(file_path):
+def compute_tfidf_vectors(file_path, vectorizer):
    with open(file_path) as f:
        data = json.load(f)
-
-   review_texts = [remove_control_chars(remove_special_chars(remove_alphanumeric_chars(entry['review_text']))) for entry in data if entry['review_text'] is not None]
-
-   vectorizer = TfidfVectorizer(stop_words=['the', 'is', 'at', 'which', 'on'])
+   review_texts = [entry['text'] for entry in data if entry['text'] is not None]
    X = vectorizer.fit_transform(review_texts)
+   if os.path.exists("vectors.txt"):
+      os.remove("vectors.txt")
+   f=open("vectors.txt",'a')
 
-   tfidf_vectors = X.toarray().tolist()
+   for vector in X :
+      f.write(str(vector))
+   return X
 
-   return tfidf_vectors
+
+def search(query, docs, vectorizer):
+  query_matrix = vectorizer.transform([query])
+  similarity_scores = cosine_similarity(docs, query_matrix)
+  
+  return similarity_scores
+   
 
 
-print(compute_tfidf_vectors("dataset.json"))
+
+
+res= search("super hero good bad best great ",compute_tfidf_vectors("dataset.json",vectorizer=vectorizer),vectorizer=vectorizer)
+print(res)

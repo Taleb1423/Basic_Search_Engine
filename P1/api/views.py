@@ -83,7 +83,7 @@ def main(request):
 
          
          
-            #  print("Title:", title)wqcwqc
+            #  print("Title:", title)
             #  print("Objective:", objective)
             #  print("Framework:", framework)
          
